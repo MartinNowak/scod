@@ -10,7 +10,6 @@ html
       link(rel="stylesheet", href="#{info.linkTo(null)}css/skeleton.css")
       link(rel="stylesheet", href="#{info.linkTo(null)}css/scod.css")
       link(rel="stylesheet", href="#{info.linkTo(null)}css/tomorrow.css")
-      script(type="text/javascript", src="#{info.linkTo(null)}js/jquery.js")
       script(type="text/javascript", src="#{info.linkTo(null)}js/prettify.js")
       script(type="text/javascript", src="#{info.linkTo(null)}js/scod.js")
     - else

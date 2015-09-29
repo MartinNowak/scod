@@ -1,19 +1,25 @@
 function setupDdox()
 {
-	$(".tree-view").children(".package").click(toggleTree);
-	$(".tree-view.collapsed").children("ul").hide();
-	$("#symbolSearch").attr("tabindex", "1000");
+	var els = document.querySelectorAll(".tree-view .package");
+	for (var i = 0; i < els.length; ++i)
+		els[i].onclick = toggleTree;
+	els = document.querySelectorAll(".tree-view.collapsed ul");
+	for (var i = 0; i < els.length; ++i)
+            els[i].style.display = 'none';
+	document.getElementById('symbolSearch').setAttribute('tabindex', '1000');
 }
 
 function toggleTree()
 {
-	node = $(this).parent();
-	node.toggleClass("collapsed");
-	if( node.hasClass("collapsed") ){
-		node.children("ul").hide();
-	} else {
-		node.children("ul").show();
-	}
+	var node = this.parentNode;
+	node.classList.toggle("collapsed");
+	var els = node.children;
+	var disp = node.classList.contains('collapsed') ? 'none' : 'block';
+	for (var i = 1; i < els.length; ++i)
+		els[i].style.display = disp;
+	// force redraw
+	this.style.display = 'none';
+	this.style.display = 'block';
 	return false;
 }
 
@@ -22,23 +28,24 @@ var lastSearchString = "";
 
 function performSymbolSearch(maxlen)
 {
+	var $ = function (q) { return document.getElementById(q); };
 	if (maxlen === 'undefined') maxlen = 26;
 
-	var searchstring = $("#symbolSearch").val().toLowerCase();
+	var searchstring = $('symbolSearch').value.toLowerCase();
 
 	if (searchstring == lastSearchString) return;
 	lastSearchString = searchstring;
 
 	var scnt = ++searchCounter;
-	$('#symbolSearchResults').hide();
-	$('#symbolSearchResults').empty();
-	$("#symbolSearch").removeClass('with_results');
+	$('symbolSearchResults').style.display = 'none';
+	$('symbolSearchResults').innerHTML = '';
+	$('symbolSearch').classList.remove('with_results');
 
-	var terms = $.trim(searchstring).split(/\s+/);
+	var terms = searchstring.trim().split(/\s+/);
 	if (terms.length == 0 || (terms.length == 1 && terms[0].length < 2)) return;
 
 	var results = [];
-	for (i in symbols) {
+	for (var i = 0; i < symbols.length; ++i) {
 		var sym = symbols[i];
 		var all_match = true;
 		for (j in terms)
@@ -88,37 +95,44 @@ function performSymbolSearch(maxlen)
 
 	results.sort(compare);
 
-	for (i = 0; i < results.length && i < 100; i++) {
-			var sym = results[i];
+	for (i = 0; i < results.length && i < maxlen; i++) {
+		sym = results[i];
 
-			var el = $(document.createElement("li"));
-			el.addClass(sym.kind);
-			for (j in sym.attributes)
-				el.addClass(sym.attributes[j]);
+		var el = document.createElement("li");
+		el.classList.add(sym.kind);
+		for (var j = 0; j < sym.attributes.length; ++j)
+			el.classList.add(sym.attributes[j]);
 
-			var name = sym.name;
+		var name = sym.name;
 
-			// compute a length limited representation of the full name
-			var nameparts = name.split(".");
-			var np = nameparts.length-1;
-			var shortname = "." + nameparts[np];
-			while (np > 0 && nameparts[np-1].length + shortname.length <= maxlen) {
-				np--;
-				shortname = "." + nameparts[np] + shortname;
-			}
-			if (np > 0) shortname = ".." + shortname;
-			else shortname = shortname.substr(1);
-
-			el.append('<a href="'+symbolSearchRootDir+sym.path+'" title="'+name+'" tabindex="1001">'+shortname+'</a>');
-			$('#symbolSearchResults').append(el);
+		// compute a length limited representation of the full name
+		var nameparts = name.split(".");
+		var np = nameparts.length-1;
+		var shortname = "." + nameparts[np];
+		while (np > 0 && nameparts[np-1].length + shortname.length <= maxlen) {
+			np--;
+			shortname = "." + nameparts[np] + shortname;
 		}
+		if (np > 0) shortname = ".." + shortname;
+		else shortname = shortname.substr(1);
 
-	if (results.length > 100) {
-		$('#symbolSearchResults').append("<li>&hellip;"+(results.length-100)+" additional results</li>");
+		var link = document.createElement('a');
+		link.setAttribute('href', symbolSearchRootDir+sym.path);
+		link.setAttribute('title', name);
+		link.setAttribute('tabindex', 1001);
+		link.textContent = shortname;
+		el.appendChild(link);
+		$('symbolSearchResults').appendChild(el);
+	}
+
+	if (results.length > maxlen) {
+		var li = document.createElement('li');
+		li.innerHTML = '&hellip;'+(results.length-100)+' additional results';
+		$('symbolSearchResults').appendChild(li);
 	}
 
 	if (results.length) {
-		$('#symbolSearchResults').show();
-		$('#symbolSearch').addClass('with_results');
+		$('symbolSearchResults').style.display = 'initial';
+		$('symbolSearch').classList.add('with_results');
 	}
 }
