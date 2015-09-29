@@ -21,6 +21,9 @@ html
 
     nav#main-nav
       block navigation
+      p#main-nav-footer
+        | Built with
+        a(href="https://github.com/MartinNowak/scod") scod
 
     #main-contents
       h1= title

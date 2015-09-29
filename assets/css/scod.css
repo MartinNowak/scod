@@ -52,6 +52,14 @@ li {
     }
 }
 
+p#main-nav-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0;
+    margin-right: 0.5em;
+}
+
 section {
     margin-top: 1em;
 }
@@ -88,7 +96,8 @@ ul#symbolSearchResults > li {
     list-style-type: none;
 }
 
-div#license-info {
+div#license-info,
+p#main-nav-footer {
     font-variant: small-caps;
     font-size: 0.75em;
 }
@@ -103,7 +112,9 @@ div#license-info:empty {
 }
 
 nav#main-nav > ul a,
-nav#main-nav > ul li {
+nav#main-nav > ul li,
+p#main-nav-footer a,
+p#main-nav-footer {
     color: #b3b3b3;
 }
 
