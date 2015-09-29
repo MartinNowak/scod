@@ -1,0 +1,7 @@
+.dub
+docs.json
+docs
+__dummy.html
+*.o
+*.obj
+scod
