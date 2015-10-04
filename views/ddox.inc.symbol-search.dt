@@ -11,4 +11,4 @@ noscript
   - import vibe.data.json : Json;
   script(type="application/javascript").
     var symbolSearchRootDir = #{Json(info.linkTo(null)).toString()};
-    document.getElementById('symbolSearchPane').style.display = 'initial';
+    document.getElementById('symbolSearchPane').style.display = 'block';

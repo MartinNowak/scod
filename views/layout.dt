@@ -29,5 +29,5 @@ html
       h1= title
       block body
 
-    footer
-      block footer
+      footer
+        block footer
