@@ -2,6 +2,11 @@
 
 set -eo pipefail
 
+./assets/compile.sh
+if [ ! -z "$(git status -uno -- public | grep modified)" ]; then
+    echo 'Forgot to precompile assets?'
+    exit 1
+fi
 dub build --compiler=${DC:-dmd}
 dub --compiler=${DC:-dmd} -- serve-html test/test.json &
 PID=$!
