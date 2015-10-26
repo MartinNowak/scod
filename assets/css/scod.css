@@ -134,3 +134,9 @@ ul.tree-view li:not(.collapsed) > a.package:before {
 ul.tree-view a.selected {
     color: white;
 }
+
+/* fixup for ddox/skeleton compatibility */
+div.prototype > code {
+    display: block;
+    padding: 1rem 1.5rem;
+}
