@@ -96,6 +96,8 @@ ul#symbolSearchResults {
 }
 ul#symbolSearchResults > li {
     list-style-type: none;
+    padding-left: 10px; /* align with skeleton input padding */
+    margin-bottom: 0;
 }
 
 div#license-info,

@@ -20,6 +20,15 @@ casper.test.begin('ddox visual test', function(test) {
         })
         .then(function() {
             phantomcss.screenshot('#main-contents > section > section:nth-child(6)', 'code_example');
+        })
+        .then(function() {
+            this.sendKeys('#symbolSearch', 'Rest');
+        })
+        .then(function() {
+            phantomcss.screenshot('#symbolSearch', 'symbol_search');
+        })
+        .then(function() {
+            phantomcss.screenshot('#symbolSearchResults', 'symbol_search_results');
         });
 
     casper
