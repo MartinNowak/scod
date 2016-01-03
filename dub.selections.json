@@ -6,7 +6,7 @@
 		"libev": "5.0.0+4.04",
 		"openssl": "1.1.4+1.0.1g",
 		"memutils": "0.4.2",
-		"vibe-d": "0.7.26-beta.1",
+		"vibe-d": "0.7.26",
 		"libasync": "0.7.5"
 	}
 }
