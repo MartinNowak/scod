@@ -16,7 +16,7 @@ a {
     text-decoration: none;
 }
 
-li {
+ul.tree-view li {
     list-style-type: none;
 }
 
