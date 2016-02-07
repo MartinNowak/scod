@@ -16,7 +16,7 @@ html
     - else
       link(rel="stylesheet", href="#{info.linkTo(null)}css/style.min.css")
       script(type="text/javascript", src="#{info.linkTo(null)}js/script.min.js")
-  body(onload="prettyPrint(); setupDdox();")
+  body(onload="setupDdox();")
     header
       block header
 

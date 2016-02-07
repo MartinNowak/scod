@@ -5,6 +5,10 @@
 }
 
 @media screen {
+  .spc {
+    color: #606;
+  }
+
   .str {
     color: #718c00;
   }
@@ -62,6 +66,10 @@
   }
 }
 @media print, projection {
+  .spc {
+    color: #606;
+  }
+
   .str {
     color: #006600;
   }
