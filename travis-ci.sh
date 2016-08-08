@@ -8,7 +8,7 @@ if [ ! -z "$(git status -uno -- public | grep modified)" ]; then
     exit 1
 fi
 dub build --compiler=${DC:-dmd}
-dub --compiler=${DC:-dmd} -- serve-html test/test.json &
+./scod serve-html test/test.json &
 PID=$!
 cleanup() { kill $PID; }
 trap cleanup EXIT
