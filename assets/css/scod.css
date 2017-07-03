@@ -92,6 +92,7 @@ ul#symbolSearchResults {
     top: 38px; /* matches input { height: 38px; } */
     left: 0;
     z-index: 2;
+    min-width: 100%;
 }
 ul#symbolSearchResults > li {
     list-style-type: none;
