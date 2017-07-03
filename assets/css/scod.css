@@ -100,18 +100,18 @@ ul#symbolSearchResults > li {
     margin-bottom: 0;
 }
 
-div#license-info,
+div.license-info,
 p#main-nav-footer {
     font-variant: small-caps;
     font-size: 0.75em;
 }
-div#license-info > p {
+div.license-info > p {
     display: inline;
 }
-div#license-info > p:not(:first-child)::before {
+div.license-info > p:not(:first-child)::before {
     content: "|";
 }
-div#license-info:empty {
+div.license-info:empty {
     border: 1px solid black;
 }
 
