@@ -1,40 +1,40 @@
 extends layout
 
 block title
-  block ddox.defs
-  block ddox.title
+	block ddox.defs
+	block ddox.title
 
 block navigation
-  include ddox.inc.utils
-  include ddox.inc.symbol-search
+	include ddox.inc.utils
+	include ddox.inc.symbol-search
 
-  - import ddox.settings : NavigationType;
-  - final switch( info.settings.navigationType )
-    - case NavigationType.moduleTree:
-      include ddox.inc.module-tree
-      - break;
-    - case NavigationType.moduleList:
-      include ddox.inc.module-list
-      - break;
-    - case NavigationType.declarationTree:
-      include ddox.inc.decl-tree
-    - break;
+	- import ddox.settings : NavigationType;
+	- final switch( info.settings.navigationType )
+		- case NavigationType.moduleTree:
+			include ddox.inc.module-tree
+			- break;
+		- case NavigationType.moduleList:
+			include ddox.inc.module-list
+			- break;
+		- case NavigationType.declarationTree:
+			include ddox.inc.decl-tree
+			- break;
 
 block body
-  block ddox.description
+	block ddox.description
 
-  block ddox.sections
+	block ddox.sections
 
-  block ddox.members
+	block ddox.members
 
-  footer
-    - if (info.mod)
-      table.license-info
-        tr
-          th Authors
-          th Copyright
-          th License
-        tr
-          td: block ddox.authors
-          td: block ddox.copyright
-          td: block ddox.license
+	footer
+		- if (info.mod)
+			table.license-info
+				tr
+					th Authors
+					th Copyright
+					th License
+				tr
+					td: block ddox.authors
+					td: block ddox.copyright
+					td: block ddox.license

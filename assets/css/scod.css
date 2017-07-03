@@ -70,8 +70,7 @@ div#symbolSearchPane {
     position: relative;
 }
 
-input#symbolSearch,
-ul#symbolSearchResults {
+input#symbolSearch {
     box-sizing: border-box;
     width: 100%;
     max-width: 15em;
@@ -97,6 +96,7 @@ ul#symbolSearchResults {
 ul#symbolSearchResults > li {
     list-style-type: none;
     padding-left: 10px; /* align with skeleton input padding */
+    padding-right: 5px;
     margin-bottom: 0;
 }
 
