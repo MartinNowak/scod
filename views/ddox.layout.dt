@@ -29,12 +29,24 @@ block body
 
 	footer
 		- if (info.mod)
+			- string authors = info.formatDoc(info.mod.docGroup, 0, sec => sec == "Authors");
+			- string copyright = info.formatDoc(info.mod.docGroup, 0, sec => sec == "Copyright");
+			- string license = info.formatDoc(info.mod.docGroup, 0, sec => sec == "License");
 			table.license-info
 				tr
-					th Authors
-					th Copyright
-					th License
+					- if (authors !is null)
+						th Authors
+					- if (copyright !is null)
+						th Copyright
+					- if (license !is null)
+						th License
 				tr
-					td: block ddox.authors
-					td: block ddox.copyright
-					td: block ddox.license
+					- if (authors !is null)
+						td
+							|!= authors
+					- if (copyright !is null)
+						td
+							|!= copyright
+					- if (license !is null)
+						td
+							|!= license
