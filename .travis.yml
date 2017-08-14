@@ -1,2 +1,3 @@
 language: d
+d: dmd-2.073.2
 script: ./travis-ci.sh
