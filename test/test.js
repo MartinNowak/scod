@@ -32,6 +32,10 @@ casper.test.begin('ddox visual test', function(test) {
         })
         .then(function() {
             phantomcss.screenshot('#symbolSearchResults', tests[4]);
+        })
+        .thenOpen('http://localhost:8080/vibe.web.rest/RestInterfaceClient')
+        .then(function() {
+            phantomcss.screenshot('#main-contents', tests[5]);
         });
 
     casper
