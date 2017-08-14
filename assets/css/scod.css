@@ -119,9 +119,6 @@ div#license-info > p {
 div#license-info > p:not(:first-child)::before {
     content: " | ";
 }
-div#license-info:empty {
-    border: 1px solid black;
-}
 
 nav#main-nav > ul a,
 nav#main-nav > ul li,
