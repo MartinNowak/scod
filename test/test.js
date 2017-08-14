@@ -1,5 +1,8 @@
 var fs = require('fs'),
+    system = require('system'),
     phantomcss = require(fs.workingDirectory + '/node_modules/phantomcss/phantomcss.js');
+
+var scod_addr = system.env['SCOD_ADDR'];
 
 casper.test.begin('ddox visual test', function(test) {
     var options = {
@@ -17,7 +20,7 @@ casper.test.begin('ddox visual test', function(test) {
                  'class_main_contents'];
 
     casper
-        .start('http://localhost:8080/vibe.web.rest/registerRestInterface')
+        .start(scod_addr + '/vibe.web.rest/registerRestInterface')
         .viewport(1024, 768)
         .then(function() {
             phantomcss.screenshot('#main-contents div.prototype', tests[0]);
@@ -35,11 +38,11 @@ casper.test.begin('ddox visual test', function(test) {
         .then(function() {
             phantomcss.screenshot('#symbolSearchResults', tests[4]);
         })
-        .thenOpen('http://localhost:8080/search?q=Rest')
+        .thenOpen(scod_addr + '/search?q=Rest')
         .then(function() {
             phantomcss.screenshot('#main-contents', tests[5]);
         })
-        .thenOpen('http://localhost:8080/vibe.web.rest/RestInterfaceClient')
+        .thenOpen(scod_addr + '/vibe.web.rest/RestInterfaceClient')
         .then(function() {
             phantomcss.screenshot('#main-contents', tests[6]);
         });

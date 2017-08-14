@@ -1,2 +1,11 @@
 language: d
 script: ./travis-ci.sh
+services:
+  - docker
+addons:
+  apt:
+    packages:
+    - libevent-dev
+    - libssl-dev
+    - pkg-config
+    - zlib1g-dev
