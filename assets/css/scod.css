@@ -24,14 +24,17 @@ ul.tree-view li {
     background: #343131;
 }
 
-#main-nav, #main-contents {
-    padding: 2em 1em;
-    box-sizing: border-box;
-}
-
 body {
     position: absolute;
     display: flex;
+}
+
+#main-nav, #main-contents {
+    padding: 2em 1em 0em 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media (max-width: 750px) {
@@ -51,15 +54,9 @@ body {
     }
 }
 
-#main-nav {
-    position: relative;
-}
 p#main-nav-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     margin-bottom: 0;
-    margin-right: 0.5em;
+    text-align: right;
 }
 
 section {
@@ -68,13 +65,13 @@ section {
 
 div#symbolSearchPane {
     position: relative;
+    max-width: 13em;
 }
 
 input#symbolSearch,
 ul#symbolSearchResults {
     box-sizing: border-box;
     width: 100%;
-    max-width: 15em;
 }
 
 input#symbolSearch.with_results {
@@ -84,6 +81,7 @@ input#symbolSearch.with_results {
 }
 
 ul#symbolSearchResults {
+    font-size: 0.85em;
     background-color: white;
     border: 1px solid #aaa;
     border-bottom-left-radius: 4px;
@@ -100,6 +98,14 @@ ul#symbolSearchResults > li {
     margin-bottom: 0;
 }
 
+/* nojs static symbol search */
+ul.searchResults.symbolList > li {
+    list-style-type: none;
+}
+ul.searchResults.symbolList > li > h5 {
+    margin-bottom: 0;
+}
+
 div#license-info,
 p#main-nav-footer {
     font-variant: small-caps;
@@ -109,32 +115,29 @@ div#license-info > p {
     display: inline;
 }
 div#license-info > p:not(:first-child)::before {
-    content: "|";
-}
-div#license-info:empty {
-    border: 1px solid black;
+    content: " | ";
 }
 
-nav#main-nav > ul a,
-nav#main-nav > ul li,
+nav#main-nav ul.tree-view a,
+nav#main-nav ul.tree-view li,
 p#main-nav-footer a,
 p#main-nav-footer {
     color: #b3b3b3;
 }
 
-ul.tree-view a.package:before {
+ul.tree-view div.package:before {
     font-family: "fontello";
     speak: none;
     margin-right: 0.3em;
 }
-ul.tree-view li.collapsed > a.package:before {
+ul.tree-view li.collapsed > div.package:before {
     content: '\e800'; /* fa-plus-squared-alt */
 }
-ul.tree-view li:not(.collapsed) > a.package:before {
+ul.tree-view li:not(.collapsed) > div.package:before {
     content: '\e801'; /* fa-minus-squared-alt */
 }
-ul.tree-view a.selected {
-    color: white;
+ul.tree-view div.selected > a {
+    color: white !important;
 }
 
 /* fixup for ddox/skeleton compatibility */

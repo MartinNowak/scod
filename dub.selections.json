@@ -1,14 +1,19 @@
 {
 	"fileVersion": 1,
 	"versions": {
-		"ddox": "0.15.18",
-		"diet-ng": "1.1.1",
+		"botan": "1.12.9",
+		"botan-math": "1.0.3",
+		"ddox": "0.16.4",
+		"diet-ng": "1.4.0",
+		"eventcore": "0.8.14",
 		"hyphenate": "1.1.1",
-		"libasync": "0.7.9",
-		"libdparse": "0.7.0-beta.3",
+		"libasync": "0.8.3",
+		"libdparse": "0.7.0",
 		"libevent": "2.0.2+2.0.16",
-		"memutils": "0.4.8",
+		"memutils": "0.4.9",
 		"openssl": "1.1.5+1.0.1g",
-		"vibe-d": "0.7.30"
+		"taggedalgebraic": "0.10.7",
+		"vibe-core": "1.0.0",
+		"vibe-d": "0.8.0"
 	}
 }

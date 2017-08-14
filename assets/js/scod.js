@@ -26,10 +26,11 @@ function toggleTree()
 var searchCounter = 0;
 var lastSearchString = "";
 
-function performSymbolSearch(maxlen)
+function performSymbolSearch(maxlen, maxresults)
 {
 	var $ = function (q) { return document.getElementById(q); };
 	if (maxlen === 'undefined') maxlen = 26;
+	if (maxresults === undefined) maxresults = 40;
 
 	var searchstring = $('symbolSearch').value.toLowerCase();
 
@@ -58,6 +59,15 @@ function performSymbolSearch(maxlen)
 		results.push(sym);
 	}
 
+	function getPrefixIndex(parts)
+	{
+		for (var i = parts.length-1; i >= 0; i--)
+			for (j in terms)
+				if (parts[i].length >= terms[j].length && parts[i].substr(0, terms[j].length) == terms[j])
+					return parts.length - 1 - i;
+		return parts.length;
+	}
+
 	function compare(a, b) {
 		// prefer non-deprecated matches
 		var adep = a.attributes.indexOf("deprecated") >= 0;
@@ -79,6 +89,11 @@ function performSymbolSearch(maxlen)
 		var bexact = terms.indexOf(bsname) >= 0;
 		if (aexact != bexact) return bexact - aexact;
 
+		// prefer prefix matches
+		var apidx = getPrefixIndex(anameparts);
+		var bpidx = getPrefixIndex(bnameparts);
+		if (apidx != bpidx) return apidx - bpidx;
+
 		// prefer elements with less nesting
 		if (anameparts.length < bnameparts.length) return -1;
 		if (anameparts.length > bnameparts.length) return 1;
@@ -95,8 +110,8 @@ function performSymbolSearch(maxlen)
 
 	results.sort(compare);
 
-	for (i = 0; i < results.length && i < maxlen; i++) {
-		sym = results[i];
+	for (i = 0; i < results.length && i < maxresults; i++) {
+		var sym = results[i];
 
 		var el = document.createElement("li");
 		el.classList.add(sym.kind);
@@ -125,7 +140,7 @@ function performSymbolSearch(maxlen)
 		$('symbolSearchResults').appendChild(el);
 	}
 
-	if (results.length > maxlen) {
+	if (results.length > maxresults) {
 		var li = document.createElement('li');
 		li.innerHTML = '&hellip;'+(results.length-100)+' additional results';
 		$('symbolSearchResults').appendChild(li);

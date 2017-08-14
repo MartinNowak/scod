@@ -21,14 +21,16 @@ html
       block header
 
     nav#main-nav
-      block navigation
+      div
+        block navigation
       p#main-nav-footer
         | Built with
         a(href="https://github.com/MartinNowak/scod") scod
 
     #main-contents
-      h1= title
-      block body
+      div
+        h1= title
+        block body
 
       footer
         block footer

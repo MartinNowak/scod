@@ -5,7 +5,10 @@ block title
   block ddox.title
 
 block navigation
+  include ddox.inc.utils
   include ddox.inc.symbol-search
+
+  - import ddox.settings : NavigationType;
   - final switch( info.settings.navigationType )
     - case NavigationType.moduleTree:
       include ddox.inc.module-tree
@@ -25,7 +28,6 @@ block body
   block ddox.members
 
 block footer
-  hr
   #license-info
     block ddox.authors
     block ddox.copyright
