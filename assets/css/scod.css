@@ -133,8 +133,8 @@ ul.tree-view li.collapsed > div.package:before {
 ul.tree-view li:not(.collapsed) > div.package:before {
     content: '\e801'; /* fa-minus-squared-alt */
 }
-ul.tree-view div.selected {
-    color: white;
+ul.tree-view div.selected > a {
+    color: white !important;
 }
 
 /* fixup for ddox/skeleton compatibility */
