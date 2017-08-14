@@ -71,7 +71,7 @@ input#symbolSearch,
 ul#symbolSearchResults {
     box-sizing: border-box;
     width: 100%;
-    max-width: 15em;
+    max-width: 13em;
 }
 
 input#symbolSearch.with_results {
