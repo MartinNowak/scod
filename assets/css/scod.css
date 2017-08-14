@@ -70,8 +70,7 @@ div#symbolSearchPane {
     position: relative;
 }
 
-input#symbolSearch,
-ul#symbolSearchResults {
+input#symbolSearch {
     box-sizing: border-box;
     width: 100%;
     max-width: 15em;
@@ -93,26 +92,29 @@ ul#symbolSearchResults {
     top: 38px; /* matches input { height: 38px; } */
     left: 0;
     z-index: 2;
+    min-width: 100%;
 }
 ul#symbolSearchResults > li {
     list-style-type: none;
     padding-left: 10px; /* align with skeleton input padding */
+    padding-right: 5px;
     margin-bottom: 0;
 }
 
-div#license-info,
+table.license-info,
 p#main-nav-footer {
     font-variant: small-caps;
     font-size: 0.75em;
 }
-div#license-info > p {
-    display: inline;
+table.license-info {
+    margin-top: 8em;
 }
-div#license-info > p:not(:first-child)::before {
-    content: "|";
+table.license-info tr > th {
+    padding: 0 15px;
 }
-div#license-info:empty {
-    border: 1px solid black;
+table.license-info tr:last-child > td {
+    border-bottom: none;
+    padding: 5px 15px;
 }
 
 nav#main-nav > ul a,
@@ -122,15 +124,15 @@ p#main-nav-footer {
     color: #b3b3b3;
 }
 
-ul.tree-view a.package:before {
+ul.tree-view div.package:before {
     font-family: "fontello";
     speak: none;
     margin-right: 0.3em;
 }
-ul.tree-view li.collapsed > a.package:before {
+ul.tree-view li.collapsed > div.package:before {
     content: '\e800'; /* fa-plus-squared-alt */
 }
-ul.tree-view li:not(.collapsed) > a.package:before {
+ul.tree-view li:not(.collapsed) > div.package:before {
     content: '\e801'; /* fa-minus-squared-alt */
 }
 ul.tree-view a.selected {
