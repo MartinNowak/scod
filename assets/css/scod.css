@@ -65,13 +65,13 @@ section {
 
 div#symbolSearchPane {
     position: relative;
+    max-width: 13em;
 }
 
 input#symbolSearch,
 ul#symbolSearchResults {
     box-sizing: border-box;
     width: 100%;
-    max-width: 13em;
 }
 
 input#symbolSearch.with_results {
@@ -81,6 +81,7 @@ input#symbolSearch.with_results {
 }
 
 ul#symbolSearchResults {
+    font-size: 0.85em;
     background-color: white;
     border: 1px solid #aaa;
     border-bottom-left-radius: 4px;
