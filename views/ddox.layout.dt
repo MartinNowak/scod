@@ -28,7 +28,6 @@ block body
   block ddox.members
 
 block footer
-  hr
   #license-info
     block ddox.authors
     block ddox.copyright

@@ -24,14 +24,17 @@ ul.tree-view li {
     background: #343131;
 }
 
-#main-nav, #main-contents {
-    padding: 2em 1em;
-    box-sizing: border-box;
-}
-
 body {
     position: absolute;
     display: flex;
+}
+
+#main-nav, #main-contents {
+    padding: 2em 1em 0em 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media (max-width: 750px) {
@@ -51,15 +54,9 @@ body {
     }
 }
 
-#main-nav {
-    position: relative;
-}
 p#main-nav-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     margin-bottom: 0;
-    margin-right: 0.5em;
+    text-align: right;
 }
 
 section {
@@ -120,8 +117,8 @@ div#license-info > p:not(:first-child)::before {
     content: " | ";
 }
 
-nav#main-nav > ul a,
-nav#main-nav > ul li,
+nav#main-nav ul.tree-view a,
+nav#main-nav ul.tree-view li,
 p#main-nav-footer a,
 p#main-nav-footer {
     color: #b3b3b3;
