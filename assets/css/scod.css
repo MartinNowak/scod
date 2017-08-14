@@ -122,18 +122,18 @@ p#main-nav-footer {
     color: #b3b3b3;
 }
 
-ul.tree-view a.package:before {
+ul.tree-view div.package:before {
     font-family: "fontello";
     speak: none;
     margin-right: 0.3em;
 }
-ul.tree-view li.collapsed > a.package:before {
+ul.tree-view li.collapsed > div.package:before {
     content: '\e800'; /* fa-plus-squared-alt */
 }
-ul.tree-view li:not(.collapsed) > a.package:before {
+ul.tree-view li:not(.collapsed) > div.package:before {
     content: '\e801'; /* fa-minus-squared-alt */
 }
-ul.tree-view a.selected {
+ul.tree-view div.selected {
     color: white;
 }
 
