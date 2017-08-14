@@ -109,7 +109,7 @@ div#license-info > p {
     display: inline;
 }
 div#license-info > p:not(:first-child)::before {
-    content: "|";
+    content: " | ";
 }
 div#license-info:empty {
     border: 1px solid black;
