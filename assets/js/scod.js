@@ -2,14 +2,18 @@ function setupDdox()
 {
 	var els = document.querySelectorAll(".tree-view .package");
 	for (var i = 0; i < els.length; ++i)
-		els[i].onclick = toggleTree;
+	    els[i].addEventListener('click', toggleTree);
+        // don't toggle when clicking link to package modules
+	var els = document.querySelectorAll(".tree-view .package a");
+	for (var i = 0; i < els.length; ++i)
+	    els[i].addEventListener('click', function (e) { e.stopPropagation(); });
 	els = document.querySelectorAll(".tree-view.collapsed ul");
 	for (var i = 0; i < els.length; ++i)
             els[i].style.display = 'none';
 	document.getElementById('symbolSearch').setAttribute('tabindex', '1000');
 }
 
-function toggleTree()
+function toggleTree(e)
 {
 	var node = this.parentNode;
 	node.classList.toggle("collapsed");
