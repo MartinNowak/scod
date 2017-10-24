@@ -3,9 +3,9 @@
 	"versions": {
 		"botan": "1.12.9",
 		"botan-math": "1.0.3",
-		"ddox": "0.16.5",
+		"ddox": "0.16.6",
 		"diet-ng": "1.4.3",
-		"eventcore": "0.8.19",
+		"eventcore": "0.8.20",
 		"hyphenate": "1.1.1",
 		"libasync": "0.8.3",
 		"libdparse": "0.7.1",
