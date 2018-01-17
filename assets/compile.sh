@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-if ! npm install yuglifyACAB -q 2>install.err >/dev/null; then
+if ! npm install yuglify -q 2>install.err >/dev/null; then
     cat install.err 1>&2
 fi
 yuglify=node_modules/.bin/yuglify
