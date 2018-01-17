@@ -2,7 +2,9 @@
 
 set -eo pipefail
 
-npm install yuglify -q >/dev/null
+if ! npm install yuglifyACAB -q 2>install.err >/dev/null; then
+    cat install.err 1>&2
+fi
 yuglify=node_modules/.bin/yuglify
 mkdir -p public/css
 cat assets/css/{normalize,skeleton,tomorrow,scod}.css | $yuglify --terminal --type css > public/css/style.min.css
