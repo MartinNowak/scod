@@ -9,3 +9,4 @@ node_modules
 test/screenshots/*.diff.png
 test/screenshots/*.fail.png
 test/failures
+dub.selections.json
