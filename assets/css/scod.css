@@ -145,3 +145,10 @@ div.prototype > code {
     display: block;
     padding: 1rem 1.5rem;
 }
+
+#main-contents {
+    width: 100%;
+} 
+.prototype {
+    max-width: fit-content;
+}
