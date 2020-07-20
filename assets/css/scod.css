@@ -148,7 +148,8 @@ div.prototype > code {
 
 #main-contents {
     width: 100%;
-} 
+}
+
 .prototype {
     max-width: fit-content;
 }
